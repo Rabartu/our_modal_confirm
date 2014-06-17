@@ -24,4 +24,4 @@ Installing this plugin is super-easy, just copy the file `modalconf.js` and incl
 
 ## Demo
 
-http://demos.rabartu.info/moda
+http://demos.rabartu.info/our_modal_confirm
