@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Our Modal Confirm</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="assets/css/docs.css" media="screen">
+    <link rel="stylesheet" href="assets/css/pygments-manni.css" media="screen">
+
+</head>
+
+<body data-offset="200" data-target="#sidebar" data-spy="scroll">
+
+<header class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-credit-card"></span> Our Modal Confirm</a>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-md-3">
+    <div class="bs-sidebar" id="sidebar" data-spy="affix" data-offset="0">
+        <ul class="nav bs-sidenav">
+            <li>
+                <a href="#description">Description</a>
+            </li>
+            <li>
+                <a href="#installation">Installation</a>
+                <ul class="nav">
+                    <li>
+                        <a href="#ins-requirements">Requirements</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#usage">Usage</a>
+                <ul class="nav">
+                    <li>
+                        <a href="#usg-attributes">Via Attributes</a>
+                    </li>
+                    <li>
+                        <a href="#usg-javascript">Via JavaScript</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#options">Options</a>
+            </li>
+            <li>
+                <a href="#customize">Customize</a>
+            </li>
+            <li>
+                <a href="#examples">Examples</a>
+                <ul class="nav">
+                    <li>
+                        <a href="#ex-form">Form</a>
+                    </li>
+                    <li>
+                        <a href="#ex-callback">Callback</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="col-md-9">
+<section>
+    <div class="page-header">
+        <h1 id="description">Description</h1>
+    </div>
+    <p>
+        This plugin display a modal dialog used for confirm operations like <b>delete</b>, <b>add</b>, or <b>edit</b>
+        among others...
+    </p>
+    <ul>
+        <li>Easy to use.</li>
+        <li>Three types of hooks ( url, form and callback).</li>
+        <li>Setup in one line.</li>
+        <li>High customization.</li>
+        <li>Customization of Options.</li>
+        <li>Customization of Styles.</li>
+    </ul>
+</section>
+<section>
+    <div class="page-header">
+        <h1 id="installation">Installation</h1>
+    </div>
+    <p>Installing this plugin is super-easy, just copy the file <code>modalconf.js</code> and include it in your page.
+    </p>
+
+    <div class="highlight">
+        <pre><code class="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"assets/js/modalconf.js"</span><span
+                class="nt">&gt;&lt;/script&gt;</span></code></pre>
+    </div>
+    <br>
+
+    <h3 id="ins-requirements">Requirements</h3>
+    <ul>
+        <li>This plugin require the <em>jquery</em> library.</li>
+    </ul>
+</section>
+<section>
+
+    <div class="page-header">
+        <h1 id="usage">Usage</h1>
+    </div>
+
+    <h3 id="usg-attributes">Via Attributes</h3>
+
+    <p>Activate the modal without writing JavaScript.</p>
+
+    <p>Set <code>class="modal-confirm"</code> on a controller element, like a button, add a
+        <code>data-title="title"</code> to set header title and <code>data-content="content body"</code> to set the
+        content. Also, you can add the attribute <code>data-options={opts}</code> to overwrite the default options. </p>
+    <h4>Example</h4>
+
+    <div class="highlight">
+        <pre><code class="html"><span class="nt">&lt;a</span><span class="na"> class=</span><span class="s">"modal-confirm"</span>
+            <span class="na">data-title=</span><span class="s">"Search Confirmation"</span> <span class="na">data-content=</span><span
+                    class="s">"Search in Google ?"</span> <span class="na">data-options=</span><span class="s">'{"confirmType" : "url" , "confirmArgs" : "http://www.google.com" }'</span>
+            <span class="nt">&gt;</span>Modal Confirm<span class="nt">&lt;/a</span><span
+                    class="nt">&gt;</span></code></pre>
+    </div>
+    <a data-title="<h4>Search Confirmation</h4>" data-content="Search in Google ?" class="btn btn-primary modal-confirm"
+       data-options='{"confirmType" : "url" , "confirmArgs" : "http://www.google.com" }'>Launch Example</a>
+
+    <h3 id="usg-javascript">Via JavaScript</h3>
+
+    <p>Call a modal with a single line of JavaScript:</p>
+    <h4>Example</h4>
+
+    <div class="highlight">
+        <pre><code class="js"><span class="nx">$(</span><span class="s1">'#modalLauncher'</span><span class="nx">).modalconf(</span><span
+                class="s1">'show'</span><span class="nx">,</span><span class="p">{</span> <span
+                class="kc">titleText</span><span class="o">:</span> <span class="nx">"Search Confirmation"</span> <span
+                class="nx">,</span><span class="kc">contentText</span><span class="o">:</span> <span class="nx">"Search in Google ?"</span>
+            <span class="nx">,</span><span class="kc">confirmType</span><span class="o">:</span> <span
+                    class="nx">"url"</span> <span class="nx">,</span><span class="kc">confirmArgs</span><span class="o">:</span>
+            <span class="nx">"http://www.google.com"</span><span class="nx">});</span></code></pre>
+    </div>
+    <a id="modalLauncher" class="btn btn-primary">Launch example</a>
+</section>
+<section>
+    <div class="page-header">
+        <h1 id="options">Options</h1>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>type</th>
+                <th>default</th>
+                <th>description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>fxSpeed</td>
+                <td>int</td>
+                <td>300</td>
+                <td>Duration of in animation.</td>
+            </tr>
+            <tr>
+                <td>hideOnClick</td>
+                <td>bool</td>
+                <td>true</td>
+                <td>Define if the modal can close when user click in external area.</td>
+            </tr>
+            <tr>
+                <td>confirmType</td>
+                <td>string</td>
+                <td>url</td>
+                <td>
+                    Type of confirmation:
+                    <ul>
+                        <li>url</li>
+                        <li>form</li>
+                        <li>callback</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>confirmArgs</td>
+                <td>string</td>
+                <td>NULL</td>
+                <td>
+                    Arguments of confirmType:
+                    <ul>
+                        <li>if <b>confirmType</b> is <code>url</code>: <b>confirmArgs</b> represent the url, ex: <em>http://www.google.com</em>.
+                        </li>
+                        <li>if <b>confirmType</b> is <code>form</code>: <b>confirmArgs</b> represent the selector for
+                            make form <b>submit</b>, ex: <em>#form-example</em>.
+                        </li>
+                        <li>if <b>confirmType</b> is <code>callback</code>: <b>confirmArgs</b> represent a functions and
+                            arguments separated by coma, ex: <em>confirm;You agree !</em> 'confirm' is the function and
+                            'You agree !' the 1st argument.
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>titleText</td>
+                <td>string</td>
+                <td>NULL</td>
+                <td>Modal 's title.</td>
+            </tr>
+            <tr>
+                <td>contentText</td>
+                <td>string</td>
+                <td>NULL</td>
+                <td>Modal 's text container.</td>
+            </tr>
+            <tr>
+                <td>closeText</td>
+                <td>string</td>
+                <td>x</td>
+                <td>Text in the close button.</td>
+            </tr>
+            <tr>
+                <td>confirmText</td>
+                <td>string</td>
+                <td>Confirm</td>
+                <td>Text displayed in the confirm button.</td>
+            </tr>
+            <tr>
+                <td>cancelText</td>
+                <td>string</td>
+                <td>Cancel</td>
+                <td>Text displayed in the cancel button.</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+<section>
+    <div class="page-header">
+        <h1 id="customize">Customize</h1>
+    </div>
+    <p>
+        The plugin have some options to customize the appareance:
+    </p>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>type</th>
+                <th>default</th>
+                <th>description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>overlayOpacity</td>
+                <td>float</td>
+                <td>0.8</td>
+                <td>Opacity of the windows when show the modal, the value is betwen 0.0 ( opacity null) y 1.0
+                    (transparency)
+                </td>
+            </tr>
+            <tr>
+                <td>width</td>
+                <td>string</td>
+                <td>60%</td>
+                <td>Width in percent</td>
+            </tr>
+            <tr>
+                <td>height</td>
+                <td>string</td>
+                <td>40%</td>
+                <td>Width in percent</td>
+            </tr>
+            <tr>
+                <td>borderRadius</td>
+                <td>string</td>
+                <td>6px</td>
+                <td>Radius Border of the Modal</td>
+            </tr>
+            <tr>
+                <td>background</td>
+                <td>string</td>
+                <td>#FFFFFF</td>
+                <td>Background Color</td>
+            </tr>
+            <tr>
+                <td>color</td>
+                <td>string</td>
+                <td>#666</td>
+                <td>Text Color</td>
+            </tr>
+            <tr>
+                <td>btnCloseClass</td>
+                <td>string</td>
+                <td>NULL</td>
+                <td>Add custom class to close button</td>
+            </tr>
+            <tr>
+                <td>btnConfirmClass</td>
+                <td>string</td>
+                <td>NULL</td>
+                <td>Add custom class to confirm button</td>
+            </tr>
+            <tr>
+                <td>btnCancelClass</td>
+                <td>string</td>
+                <td>NULL</td>
+                <td>Add custom class to cancel button</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+<section>
+    <div class="page-header">
+        <h1 id="examples">Examples</h1>
+    </div>
+
+    <h3 id="ex-form">Form</h3>
+
+    <div class="highlight">
+                            <pre>
+                                <span>&lt;</span>form name="confirm-form"  id="confirm-form"<span>&gt;</span><br>
+                                <span>&lt;</span>input name="confirm-name" </span>&gt;<br>
+                                <span>&lt;/</span>form<span>&gt;</span>
+                            </pre>
+    </div>
+    <div class="highlight">
+        <pre><code class="html"><span class="nt">&lt;a</span><span class="na"> class=</span><span class="s">"modal-confirm"</span>
+            <span class="na">data-title=</span><span class="s">"Form Submit Confirmation"</span> <span class="na">data-content=</span><span
+                    class="s">"Are you Sure ?"</span> <span class="na">data-options=</span><span class="s">'{"confirmType" : "form" , "confirmArgs" : "#confirm-form" }'</span>
+            <span class="nt">&gt;</span>Modal Confirm<span class="nt">&lt;/a</span><span
+                    class="nt">&gt;</span></code></pre>
+    </div>
+    <form name="confirm-form" id="confirm-form" action="#">
+        <input name="confirm-name"/>
+    </form>
+    <br>
+    <a data-title="<h4>Form Submit Confirmation</h4>" data-content="Are you Sure ?"
+       class="btn btn-primary modal-confirm" data-options='{"confirmType" : "form" , "confirmArgs" : "#confirm-form" }'>Form
+        Confirmation</a>
+
+    <h3 id="ex-callback">Callback</h3>
+
+    <div class="highlight">
+        <pre><code class="html"><span class="nt">&lt;a</span><span class="na"> class=</span><span class="s">"modal-confirm"</span>
+            <span class="na">data-title=</span><span class="s">"Licence"</span> <span
+                    class="na">data-content=</span><span class="s">"This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version..."</span>
+            <span class="na">data-options=</span><span class="s">'{"confirmText":"I agree","cancelText":"I desagree","btnConfirmClass":"btn btn-primary", "btnCancelClass":"btn btn-default", "borderRadius":"0px","width":"50%", "height":"70%" , "confirmType" : "callback" , "confirmArgs" : "confirm;You agree !" }'</span>
+            <span class="nt">&gt;</span>Callback Confirmation<span class="nt">&lt;/a</span><span class="nt">&gt;</span></code></pre>
+    </div>
+    <div class="highlight">
+                            <pre>
+                                <code class="html">function confirm( args ) { alert( args[1] ) ; } </code>
+                            </pre>
+    </div>
+    <a data-title="<h2>Licence</h2>" data-content=
+            "<p>This program is free software; you can redistribute it and/or
+                            modify it under the terms of the GNU General Public License
+                            as published by the Free Software Foundation; either version 2
+                            of the License, or (at your option) any later version.</p>
+
+                            <p>This program is distributed in the hope that it will be useful,
+                            but WITHOUT ANY WARRANTY; without even the implied warranty of
+                            MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+                            GNU General Public License for more details.</p>
+
+                            <p>You should have received a copy of the GNU General Public License
+                            along with this program; if not, write to the Free Software
+                            Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.</p>"
+       data-options='{"confirmText":"I agree","cancelText":"I desagree","btnConfirmClass":"btn btn-primary", "btnCancelClass":"btn btn-default", "borderRadius":"0px","width":"50%", "height":"70%" , "confirmType" : "callback" , "confirmArgs" : "confirm;You agree !" }'
+       class="btn btn-primary modal-confirm">Callback Confirmation</a>
+</section>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+    <br><br>
+</footer>
+
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="modconf.js"></script>
+
+<script>
+    (function ($) {
+        $('#modalLauncher').click(function () {
+            $(this).modalconf('show', {
+                titleText: 'Search Confirmation',
+                contentText: 'Search in Google ?',
+                confirmType: 'url',
+                confirmArgs: 'http://www.google.com'
+            });
+        });
+    })(jQuery)
+
+    function confirm(args) {
+        alert(args[1]);
+    }
+</script>
+
+</body>
+</html>
